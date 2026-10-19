@@ -1,0 +1,36 @@
+Gladys Fête du jour integration
+Copyright 2026 William Deren
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The built-in list of the name days (src/days.js) is derived from the list of
+scriptable-fete-du-jour (https://github.com/monsieurm/scriptable-fete-du-jour),
+corrected against the French Wikipedia day pages and the liturgical calendar.
+It is used under the MIT License:
+
+    MIT License
+    
+    Copyright (c) 2023 Matthieu Renaut
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+
+With a key of the user, the names can also come from the fetedujour.fr API
+(https://fetedujour.fr/api/), a free service of utopiaweb: each day of the year
+is asked once and kept. This community integration is not affiliated with,
+endorsed or sponsored by fetedujour.fr or utopiaweb.

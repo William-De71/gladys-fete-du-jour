@@ -1,0 +1,43 @@
+{
+  "name": "gladys-fete-du-jour",
+  "version": "0.1.0",
+  "private": true,
+  "description": "External Gladys Assistant integration for the name days of the French calendar (fetedujour.fr or a built-in list): a calendar, a scene trigger, a scene action and a dashboard widget.",
+  "homepage": "https://github.com/William-De71/gladys-fete-du-jour",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/William-De71/gladys-fete-du-jour.git"
+  },
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@gladysassistant/integration-sdk": "^0.15.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "gladys-assistant",
+    "gladys-assistant-integration",
+    "name-day",
+    "fete-du-jour",
+    "saint",
+    "calendar",
+    "home-automation"
+  ]
+}

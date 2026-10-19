@@ -1,0 +1,2498 @@
+{
+  "manifest_version": 1,
+  "type": "calendar",
+  "name": "Fête du jour",
+  "description": {
+    "en": "Name days of the French calendar: a Gladys calendar, a scene trigger, a widget.",
+    "fr": "Les fêtes du calendrier : un calendrier Gladys, un déclencheur de scène, un widget.",
+    "de": "Namenstage des französischen Kalenders: Gladys-Kalender, Szenen-Auslöser, Widget.",
+    "es": "Santoral del calendario francés: un calendario Gladys, un disparador, un widget."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-fete-du-jour:0.1.0",
+  "gladys_version": ">=5.2.0",
+  "categories": ["services"],
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-fete-du-jour/main/cover.jpg",
+  "transports": ["local", "cloud"],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Name days",
+        "fr": "Fêtes du jour",
+        "de": "Namenstage",
+        "es": "Santoral"
+      },
+      "description": {
+        "en": "How it works:\n1. Enable the integration for you in “My calendars” below: you get a “Name days” calendar, one all-day event a day, for a year ahead. Share it with the household to use it in the scenes.\n2. Add the “Name day” widget to a dashboard.\n3. In a scene, the “Name day” trigger starts every day at the hour below, or only on the name day of the first names you choose.\nThe names come from the traditional French calendar built into the integration: nothing to set, no connection needed.",
+        "fr": "Comment ça marche :\n1. Activez l’intégration pour vous dans « Mes calendriers » ci-dessous : vous obtenez un calendrier « Fêtes du jour », un événement d’une journée par jour, sur un an. Partagez-le avec le foyer pour l’utiliser dans les scènes.\n2. Ajoutez le widget « Fête du jour » à un tableau de bord.\n3. Dans une scène, le déclencheur « Fête du jour » démarre chaque jour à l’heure ci-dessous, ou seulement le jour de la fête des prénoms que vous choisissez.\nLes noms viennent du calendrier traditionnel français intégré à l’intégration : rien à régler, aucune connexion nécessaire.",
+        "de": "So funktioniert es:\n1. Aktivieren Sie die Integration für sich unten unter „Meine Kalender“: Sie erhalten einen Kalender „Namenstage“ mit einem ganztägigen Ereignis pro Tag für ein Jahr. Teilen Sie ihn mit dem Haushalt, um ihn in Szenen zu nutzen.\n2. Fügen Sie das Widget „Namenstag“ einem Dashboard hinzu.\n3. In einer Szene startet der Auslöser „Namenstag“ jeden Tag zur Stunde unten, oder nur am Namenstag der gewählten Vornamen.\nDie Namen stammen aus dem in die Integration eingebauten traditionellen französischen Kalender: nichts einzustellen, keine Verbindung nötig.",
+        "es": "Cómo funciona:\n1. Active la integración para usted en «Mis calendarios» más abajo: obtiene un calendario «Santoral», un evento de día completo por día, para un año. Compártalo con el hogar para usarlo en las escenas.\n2. Añada el widget «Santo del día» a un panel.\n3. En una escena, el disparador «Santo del día» se inicia cada día a la hora indicada abajo, o solo el día del santo de los nombres que elija.\nLos nombres proceden del calendario tradicional francés integrado: nada que ajustar, ninguna conexión necesaria."
+      },
+      "links": [
+        {
+          "url": "https://github.com/William-De71/gladys-fete-du-jour/blob/main/docs/fr.md",
+          "label": {
+            "en": "Documentation (French)",
+            "fr": "Documentation",
+            "de": "Dokumentation (Französisch)",
+            "es": "Documentación (francés)"
+          }
+        },
+        {
+          "url": "https://github.com/William-De71/gladys-fete-du-jour/blob/main/docs/en.md",
+          "label": {
+            "en": "Documentation",
+            "fr": "Documentation (anglais)",
+            "de": "Dokumentation (Englisch)",
+            "es": "Documentación (inglés)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "event_hour",
+      "type": "number",
+      "min": 0,
+      "max": 23,
+      "default": 8,
+      "label": {
+        "en": "Hour of the scene event",
+        "fr": "Heure de l’événement de scène",
+        "de": "Stunde des Szenen-Ereignisses",
+        "es": "Hora del evento de escena"
+      },
+      "description": {
+        "en": "The “Name day” trigger starts every day at this hour (0 to 23, in the timezone of Gladys).",
+        "fr": "Le déclencheur « Fête du jour » démarre chaque jour à cette heure (0 à 23, dans le fuseau horaire de Gladys).",
+        "de": "Der Auslöser „Namenstag“ startet jeden Tag zu dieser Stunde (0 bis 23, in der Zeitzone von Gladys).",
+        "es": "El disparador «Santo del día» se inicia cada día a esta hora (0 a 23, en la zona horaria de Gladys)."
+      }
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "default": "auto",
+      "label": {
+        "en": "Language of the texts",
+        "fr": "Langue des textes",
+        "de": "Sprache der Texte",
+        "es": "Idioma de los textos"
+      },
+      "description": {
+        "en": "Scene summaries and status. Automatic: the language of your dashboard once the widget has been shown, guessed from the timezone of Gladys before that. The calendar always follows the language of each user.",
+        "fr": "Résumés des scènes et état. Automatique : la langue de votre tableau de bord dès que le widget a été affiché, devinée d’après le fuseau horaire de Gladys avant cela. Le calendrier suit toujours la langue de chaque utilisateur.",
+        "de": "Szenen-Zusammenfassungen und Status. Automatisch: die Sprache Ihres Dashboards, sobald das Widget angezeigt wurde, vorher aus der Zeitzone von Gladys abgeleitet. Der Kalender folgt immer der Sprache jedes Benutzers.",
+        "es": "Resúmenes de escenas y estado. Automático: el idioma de su panel en cuanto se haya mostrado el widget, deducido de la zona horaria de Gladys antes de eso. El calendario sigue siempre el idioma de cada usuario."
+      },
+      "options": [
+        {
+          "value": "auto",
+          "label": {
+            "en": "Automatic",
+            "fr": "Automatique",
+            "de": "Automatisch",
+            "es": "Automático"
+          }
+        },
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "English",
+            "de": "English",
+            "es": "English"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "Français",
+            "fr": "Français",
+            "de": "Français",
+            "es": "Français"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "Deutsch",
+            "fr": "Deutsch",
+            "de": "Deutsch",
+            "es": "Deutsch"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Español",
+            "fr": "Español",
+            "de": "Español",
+            "es": "Español"
+          }
+        }
+      ]
+    },
+    {
+      "key": "source",
+      "type": "section",
+      "label": {
+        "en": "fetedujour.fr (optional)",
+        "fr": "fetedujour.fr (facultatif)",
+        "de": "fetedujour.fr (optional)",
+        "es": "fetedujour.fr (opcional)"
+      },
+      "description": {
+        "en": "Instead of the built-in list, the names can come from fetedujour.fr. Its key is free, but tied to ONE fixed public IP address: generate it on the page below with the public address of your internet box. With an address that changes, the key stops working and the built-in list takes over. Each day of the year is asked once (one request every 30 seconds, about three hours the first time), then kept.",
+        "fr": "Au lieu de la liste intégrée, les noms peuvent venir de fetedujour.fr. Sa clé est gratuite, mais liée à UNE adresse IP publique fixe : générez-la sur la page ci-dessous avec l’adresse publique de votre box. Avec une adresse qui change, la clé cesse de fonctionner et la liste intégrée prend le relais. Chaque jour de l’année est demandé une seule fois (une requête toutes les 30 secondes, environ trois heures la première fois), puis conservé.",
+        "de": "Statt der integrierten Liste können die Namen von fetedujour.fr kommen. Der Schlüssel ist kostenlos, aber an EINE feste öffentliche IP-Adresse gebunden: Erzeugen Sie ihn auf der Seite unten mit der öffentlichen Adresse Ihres Routers. Ändert sich die Adresse, funktioniert der Schlüssel nicht mehr und die integrierte Liste übernimmt. Jeder Tag des Jahres wird nur einmal abgefragt (eine Anfrage alle 30 Sekunden, beim ersten Mal etwa drei Stunden) und dann behalten.",
+        "es": "En lugar de la lista integrada, los nombres pueden venir de fetedujour.fr. Su clave es gratuita, pero está vinculada a UNA dirección IP pública fija: genérela en la página de abajo con la dirección pública de su router. Si la dirección cambia, la clave deja de funcionar y la lista integrada toma el relevo. Cada día del año se pide una sola vez (una petición cada 30 segundos, unas tres horas la primera vez) y luego se conserva."
+      },
+      "links": [
+        {
+          "url": "https://fetedujour.fr/api/",
+          "label": {
+            "en": "Get a fetedujour.fr key",
+            "fr": "Obtenir une clé fetedujour.fr",
+            "de": "Einen fetedujour.fr-Schlüssel erhalten",
+            "es": "Obtener una clave de fetedujour.fr"
+          }
+        }
+      ]
+    },
+    {
+      "key": "api_key",
+      "type": "secret",
+      "label": {
+        "en": "fetedujour.fr key (optional)",
+        "fr": "Clé fetedujour.fr (facultative)",
+        "de": "fetedujour.fr-Schlüssel (optional)",
+        "es": "Clave de fetedujour.fr (opcional)"
+      },
+      "description": {
+        "en": "Empty: the built-in list.",
+        "fr": "Vide : la liste intégrée.",
+        "de": "Leer: die integrierte Liste.",
+        "es": "Vacía: la lista integrada."
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "key": "today",
+      "icon": "gift",
+      "label": {
+        "en": "Name day",
+        "fr": "Fête du jour",
+        "de": "Namenstag",
+        "es": "Santo del día"
+      },
+      "description": {
+        "en": "The name day of today, and of the next days.",
+        "fr": "La fête du jour, et celles des jours suivants.",
+        "de": "Der Namenstag von heute und der nächsten Tage.",
+        "es": "El santo de hoy y de los próximos días."
+      },
+      "settings": [
+        {
+          "key": "days",
+          "type": "number",
+          "min": 0,
+          "max": 7,
+          "default": 5,
+          "label": {
+            "en": "Next days",
+            "fr": "Jours suivants",
+            "de": "Nächste Tage",
+            "es": "Días siguientes"
+          },
+          "description": {
+            "en": "0: today only.",
+            "fr": "0 : aujourd’hui seulement.",
+            "de": "0: nur heute.",
+            "es": "0: solo hoy."
+          }
+        }
+      ]
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "name_day",
+      "label": {
+        "en": "Name day",
+        "fr": "Fête du jour",
+        "de": "Namenstag",
+        "es": "Santo del día"
+      },
+      "description": {
+        "en": "Every day at the hour of the configuration, with the name day of the day.",
+        "fr": "Chaque jour à l’heure de la configuration, avec la fête du jour.",
+        "de": "Jeden Tag zur Stunde der Konfiguration, mit dem Namenstag des Tages.",
+        "es": "Cada día a la hora de la configuración, con el santo del día."
+      },
+      "fields": [
+        {
+          "key": "name_key",
+          "type": "multi_select",
+          "label": {
+            "en": "First names",
+            "fr": "Prénoms",
+            "de": "Vornamen",
+            "es": "Nombres"
+          },
+          "description": {
+            "en": "Empty: every day. Otherwise only on the name day of these first names (yours, your family’s).",
+            "fr": "Vide : chaque jour. Sinon seulement le jour de la fête de ces prénoms (le vôtre, ceux de vos proches).",
+            "de": "Leer: jeden Tag. Sonst nur am Namenstag dieser Vornamen (Ihrer, die Ihrer Familie).",
+            "es": "Vacío: cada día. Si no, solo el día del santo de estos nombres (el suyo, los de su familia)."
+          },
+          "options": [
+            {
+              "value": "abel",
+              "label": {
+                "en": "Abel"
+              }
+            },
+            {
+              "value": "achille",
+              "label": {
+                "en": "Achille"
+              }
+            },
+            {
+              "value": "adele",
+              "label": {
+                "en": "Adèle"
+              }
+            },
+            {
+              "value": "adeline",
+              "label": {
+                "en": "Adeline"
+              }
+            },
+            {
+              "value": "adelphe",
+              "label": {
+                "en": "Adelphe"
+              }
+            },
+            {
+              "value": "agathe",
+              "label": {
+                "en": "Agathe"
+              }
+            },
+            {
+              "value": "agnes",
+              "label": {
+                "en": "Agnès"
+              }
+            },
+            {
+              "value": "aime",
+              "label": {
+                "en": "Aimé"
+              }
+            },
+            {
+              "value": "aimee",
+              "label": {
+                "en": "Aimée"
+              }
+            },
+            {
+              "value": "alain",
+              "label": {
+                "en": "Alain"
+              }
+            },
+            {
+              "value": "alban",
+              "label": {
+                "en": "Alban"
+              }
+            },
+            {
+              "value": "albert",
+              "label": {
+                "en": "Albert"
+              }
+            },
+            {
+              "value": "alexandre",
+              "label": {
+                "en": "Alexandre"
+              }
+            },
+            {
+              "value": "alexis",
+              "label": {
+                "en": "Alexis"
+              }
+            },
+            {
+              "value": "alice",
+              "label": {
+                "en": "Alice"
+              }
+            },
+            {
+              "value": "alida",
+              "label": {
+                "en": "Alida"
+              }
+            },
+            {
+              "value": "alix",
+              "label": {
+                "en": "Alix"
+              }
+            },
+            {
+              "value": "alphonse",
+              "label": {
+                "en": "Alphonse"
+              }
+            },
+            {
+              "value": "amandine",
+              "label": {
+                "en": "Amandine"
+              }
+            },
+            {
+              "value": "ambroise",
+              "label": {
+                "en": "Ambroise"
+              }
+            },
+            {
+              "value": "amedee",
+              "label": {
+                "en": "Amédée"
+              }
+            },
+            {
+              "value": "amour",
+              "label": {
+                "en": "Amour"
+              }
+            },
+            {
+              "value": "andre",
+              "label": {
+                "en": "André"
+              }
+            },
+            {
+              "value": "angele",
+              "label": {
+                "en": "Angèle"
+              }
+            },
+            {
+              "value": "anicet",
+              "label": {
+                "en": "Anicet"
+              }
+            },
+            {
+              "value": "anne",
+              "label": {
+                "en": "Anne"
+              }
+            },
+            {
+              "value": "anselme",
+              "label": {
+                "en": "Anselme"
+              }
+            },
+            {
+              "value": "anthelme",
+              "label": {
+                "en": "Anthelme"
+              }
+            },
+            {
+              "value": "antoine",
+              "label": {
+                "en": "Antoine"
+              }
+            },
+            {
+              "value": "antoine-de-padoue",
+              "label": {
+                "en": "Antoine de Padoue"
+              }
+            },
+            {
+              "value": "apollinaire",
+              "label": {
+                "en": "Apollinaire"
+              }
+            },
+            {
+              "value": "apolline",
+              "label": {
+                "en": "Apolline"
+              }
+            },
+            {
+              "value": "aristide",
+              "label": {
+                "en": "Aristide"
+              }
+            },
+            {
+              "value": "armand",
+              "label": {
+                "en": "Armand"
+              }
+            },
+            {
+              "value": "armel",
+              "label": {
+                "en": "Armel"
+              }
+            },
+            {
+              "value": "arnaud",
+              "label": {
+                "en": "Arnaud"
+              }
+            },
+            {
+              "value": "arsene",
+              "label": {
+                "en": "Arsène"
+              }
+            },
+            {
+              "value": "aubin",
+              "label": {
+                "en": "Aubin"
+              }
+            },
+            {
+              "value": "aude",
+              "label": {
+                "en": "Aude"
+              }
+            },
+            {
+              "value": "audrey",
+              "label": {
+                "en": "Audrey"
+              }
+            },
+            {
+              "value": "auguste",
+              "label": {
+                "en": "Auguste"
+              }
+            },
+            {
+              "value": "augustin",
+              "label": {
+                "en": "Augustin"
+              }
+            },
+            {
+              "value": "aymar",
+              "label": {
+                "en": "Aymar"
+              }
+            },
+            {
+              "value": "barbara",
+              "label": {
+                "en": "Barbara"
+              }
+            },
+            {
+              "value": "barnabe",
+              "label": {
+                "en": "Barnabé"
+              }
+            },
+            {
+              "value": "barnard",
+              "label": {
+                "en": "Barnard"
+              }
+            },
+            {
+              "value": "barthelemy",
+              "label": {
+                "en": "Barthélemy"
+              }
+            },
+            {
+              "value": "basile",
+              "label": {
+                "en": "Basile"
+              }
+            },
+            {
+              "value": "baudouin",
+              "label": {
+                "en": "Baudouin"
+              }
+            },
+            {
+              "value": "beatrice",
+              "label": {
+                "en": "Béatrice"
+              }
+            },
+            {
+              "value": "benedicte",
+              "label": {
+                "en": "Bénédicte"
+              }
+            },
+            {
+              "value": "benjamin",
+              "label": {
+                "en": "Benjamin"
+              }
+            },
+            {
+              "value": "benoit",
+              "label": {
+                "en": "Benoît"
+              }
+            },
+            {
+              "value": "benoit-joseph",
+              "label": {
+                "en": "Benoît-Joseph"
+              }
+            },
+            {
+              "value": "berenger",
+              "label": {
+                "en": "Bérenger"
+              }
+            },
+            {
+              "value": "bernadette",
+              "label": {
+                "en": "Bernadette"
+              }
+            },
+            {
+              "value": "bernard",
+              "label": {
+                "en": "Bernard"
+              }
+            },
+            {
+              "value": "bernardin",
+              "label": {
+                "en": "Bernardin"
+              }
+            },
+            {
+              "value": "bertille",
+              "label": {
+                "en": "Bertille"
+              }
+            },
+            {
+              "value": "bertrand",
+              "label": {
+                "en": "Bertrand"
+              }
+            },
+            {
+              "value": "bienvenue",
+              "label": {
+                "en": "Bienvenue"
+              }
+            },
+            {
+              "value": "blaise",
+              "label": {
+                "en": "Blaise"
+              }
+            },
+            {
+              "value": "blandine",
+              "label": {
+                "en": "Blandine"
+              }
+            },
+            {
+              "value": "boris",
+              "label": {
+                "en": "Boris"
+              }
+            },
+            {
+              "value": "brice",
+              "label": {
+                "en": "Brice"
+              }
+            },
+            {
+              "value": "brigitte",
+              "label": {
+                "en": "Brigitte"
+              }
+            },
+            {
+              "value": "bruno",
+              "label": {
+                "en": "Bruno"
+              }
+            },
+            {
+              "value": "camille",
+              "label": {
+                "en": "Camille"
+              }
+            },
+            {
+              "value": "carine",
+              "label": {
+                "en": "Carine"
+              }
+            },
+            {
+              "value": "casimir",
+              "label": {
+                "en": "Casimir"
+              }
+            },
+            {
+              "value": "catherine",
+              "label": {
+                "en": "Catherine"
+              }
+            },
+            {
+              "value": "catherine-de-sienne",
+              "label": {
+                "en": "Catherine de Sienne"
+              }
+            },
+            {
+              "value": "cecile",
+              "label": {
+                "en": "Cécile"
+              }
+            },
+            {
+              "value": "celine",
+              "label": {
+                "en": "Céline"
+              }
+            },
+            {
+              "value": "charles",
+              "label": {
+                "en": "Charles"
+              }
+            },
+            {
+              "value": "charles-le-bon",
+              "label": {
+                "en": "Charles le Bon"
+              }
+            },
+            {
+              "value": "charlotte",
+              "label": {
+                "en": "Charlotte"
+              }
+            },
+            {
+              "value": "christian",
+              "label": {
+                "en": "Christian"
+              }
+            },
+            {
+              "value": "christine",
+              "label": {
+                "en": "Christine"
+              }
+            },
+            {
+              "value": "christophe",
+              "label": {
+                "en": "Christophe"
+              }
+            },
+            {
+              "value": "claire",
+              "label": {
+                "en": "Claire"
+              }
+            },
+            {
+              "value": "clarisse",
+              "label": {
+                "en": "Clarisse"
+              }
+            },
+            {
+              "value": "claude",
+              "label": {
+                "en": "Claude"
+              }
+            },
+            {
+              "value": "clemence",
+              "label": {
+                "en": "Clémence"
+              }
+            },
+            {
+              "value": "clement",
+              "label": {
+                "en": "Clément"
+              }
+            },
+            {
+              "value": "clotilde",
+              "label": {
+                "en": "Clotilde"
+              }
+            },
+            {
+              "value": "colette",
+              "label": {
+                "en": "Colette"
+              }
+            },
+            {
+              "value": "come",
+              "label": {
+                "en": "Côme"
+              }
+            },
+            {
+              "value": "constant",
+              "label": {
+                "en": "Constant"
+              }
+            },
+            {
+              "value": "constantin",
+              "label": {
+                "en": "Constantin"
+              }
+            },
+            {
+              "value": "crepin",
+              "label": {
+                "en": "Crépin"
+              }
+            },
+            {
+              "value": "cyrille",
+              "label": {
+                "en": "Cyrille"
+              }
+            },
+            {
+              "value": "daniel",
+              "label": {
+                "en": "Daniel"
+              }
+            },
+            {
+              "value": "david",
+              "label": {
+                "en": "David"
+              }
+            },
+            {
+              "value": "davy",
+              "label": {
+                "en": "Davy"
+              }
+            },
+            {
+              "value": "delphine",
+              "label": {
+                "en": "Delphine"
+              }
+            },
+            {
+              "value": "denis",
+              "label": {
+                "en": "Denis"
+              }
+            },
+            {
+              "value": "denise",
+              "label": {
+                "en": "Denise"
+              }
+            },
+            {
+              "value": "desire",
+              "label": {
+                "en": "Désiré"
+              }
+            },
+            {
+              "value": "diane",
+              "label": {
+                "en": "Diane"
+              }
+            },
+            {
+              "value": "didier",
+              "label": {
+                "en": "Didier"
+              }
+            },
+            {
+              "value": "dimitri",
+              "label": {
+                "en": "Dimitri"
+              }
+            },
+            {
+              "value": "dominique",
+              "label": {
+                "en": "Dominique"
+              }
+            },
+            {
+              "value": "donald",
+              "label": {
+                "en": "Donald"
+              }
+            },
+            {
+              "value": "donatien",
+              "label": {
+                "en": "Donatien"
+              }
+            },
+            {
+              "value": "edith",
+              "label": {
+                "en": "Édith"
+              }
+            },
+            {
+              "value": "edmond",
+              "label": {
+                "en": "Edmond"
+              }
+            },
+            {
+              "value": "edouard",
+              "label": {
+                "en": "Édouard"
+              }
+            },
+            {
+              "value": "edwige",
+              "label": {
+                "en": "Edwige"
+              }
+            },
+            {
+              "value": "elisabeth",
+              "label": {
+                "en": "Élisabeth"
+              }
+            },
+            {
+              "value": "elisee",
+              "label": {
+                "en": "Élisée"
+              }
+            },
+            {
+              "value": "ella",
+              "label": {
+                "en": "Ella"
+              }
+            },
+            {
+              "value": "elodie",
+              "label": {
+                "en": "Élodie"
+              }
+            },
+            {
+              "value": "emeline",
+              "label": {
+                "en": "Émeline"
+              }
+            },
+            {
+              "value": "emile",
+              "label": {
+                "en": "Émile"
+              }
+            },
+            {
+              "value": "emilie",
+              "label": {
+                "en": "Émilie"
+              }
+            },
+            {
+              "value": "emma",
+              "label": {
+                "en": "Emma"
+              }
+            },
+            {
+              "value": "emmanuel",
+              "label": {
+                "en": "Emmanuel"
+              }
+            },
+            {
+              "value": "eric",
+              "label": {
+                "en": "Éric"
+              }
+            },
+            {
+              "value": "estelle",
+              "label": {
+                "en": "Estelle"
+              }
+            },
+            {
+              "value": "etienne",
+              "label": {
+                "en": "Étienne"
+              }
+            },
+            {
+              "value": "eugenie",
+              "label": {
+                "en": "Eugénie"
+              }
+            },
+            {
+              "value": "evrard",
+              "label": {
+                "en": "Évrard"
+              }
+            },
+            {
+              "value": "fabrice",
+              "label": {
+                "en": "Fabrice"
+              }
+            },
+            {
+              "value": "felicite",
+              "label": {
+                "en": "Félicité"
+              }
+            },
+            {
+              "value": "felix",
+              "label": {
+                "en": "Félix"
+              }
+            },
+            {
+              "value": "ferdinand",
+              "label": {
+                "en": "Ferdinand"
+              }
+            },
+            {
+              "value": "fernand",
+              "label": {
+                "en": "Fernand"
+              }
+            },
+            {
+              "value": "fiacre",
+              "label": {
+                "en": "Fiacre"
+              }
+            },
+            {
+              "value": "fidele",
+              "label": {
+                "en": "Fidèle"
+              }
+            },
+            {
+              "value": "firmin",
+              "label": {
+                "en": "Firmin"
+              }
+            },
+            {
+              "value": "fleur",
+              "label": {
+                "en": "Fleur"
+              }
+            },
+            {
+              "value": "flora",
+              "label": {
+                "en": "Flora"
+              }
+            },
+            {
+              "value": "florence",
+              "label": {
+                "en": "Florence"
+              }
+            },
+            {
+              "value": "florent",
+              "label": {
+                "en": "Florent"
+              }
+            },
+            {
+              "value": "florentin",
+              "label": {
+                "en": "Florentin"
+              }
+            },
+            {
+              "value": "francois-d-assise",
+              "label": {
+                "en": "François d'Assise"
+              }
+            },
+            {
+              "value": "francois-de-sales",
+              "label": {
+                "en": "François de Sales"
+              }
+            },
+            {
+              "value": "francois-xavier",
+              "label": {
+                "en": "François-Xavier"
+              }
+            },
+            {
+              "value": "francoise",
+              "label": {
+                "en": "Françoise"
+              }
+            },
+            {
+              "value": "francoise-xaviere",
+              "label": {
+                "en": "Françoise-Xavière"
+              }
+            },
+            {
+              "value": "frederic",
+              "label": {
+                "en": "Frédéric"
+              }
+            },
+            {
+              "value": "fulbert",
+              "label": {
+                "en": "Fulbert"
+              }
+            },
+            {
+              "value": "gabin",
+              "label": {
+                "en": "Gabin"
+              }
+            },
+            {
+              "value": "gael",
+              "label": {
+                "en": "Gaël"
+              }
+            },
+            {
+              "value": "gaetan",
+              "label": {
+                "en": "Gaétan"
+              }
+            },
+            {
+              "value": "gaston",
+              "label": {
+                "en": "Gaston"
+              }
+            },
+            {
+              "value": "gatien",
+              "label": {
+                "en": "Gatien"
+              }
+            },
+            {
+              "value": "gautier",
+              "label": {
+                "en": "Gautier"
+              }
+            },
+            {
+              "value": "genevieve",
+              "label": {
+                "en": "Geneviève"
+              }
+            },
+            {
+              "value": "geoffroy",
+              "label": {
+                "en": "Geoffroy"
+              }
+            },
+            {
+              "value": "georges",
+              "label": {
+                "en": "Georges"
+              }
+            },
+            {
+              "value": "gerald",
+              "label": {
+                "en": "Gérald"
+              }
+            },
+            {
+              "value": "gerard",
+              "label": {
+                "en": "Gérard"
+              }
+            },
+            {
+              "value": "geraud",
+              "label": {
+                "en": "Géraud"
+              }
+            },
+            {
+              "value": "germain",
+              "label": {
+                "en": "Germain"
+              }
+            },
+            {
+              "value": "germaine",
+              "label": {
+                "en": "Germaine"
+              }
+            },
+            {
+              "value": "ghislain",
+              "label": {
+                "en": "Ghislain"
+              }
+            },
+            {
+              "value": "gilbert",
+              "label": {
+                "en": "Gilbert"
+              }
+            },
+            {
+              "value": "gildas",
+              "label": {
+                "en": "Gildas"
+              }
+            },
+            {
+              "value": "gilles",
+              "label": {
+                "en": "Gilles"
+              }
+            },
+            {
+              "value": "gisele",
+              "label": {
+                "en": "Gisèle"
+              }
+            },
+            {
+              "value": "gontran",
+              "label": {
+                "en": "Gontran"
+              }
+            },
+            {
+              "value": "gonzague",
+              "label": {
+                "en": "Gonzague"
+              }
+            },
+            {
+              "value": "gregoire",
+              "label": {
+                "en": "Grégoire"
+              }
+            },
+            {
+              "value": "guenole",
+              "label": {
+                "en": "Guénolé"
+              }
+            },
+            {
+              "value": "guillaume",
+              "label": {
+                "en": "Guillaume"
+              }
+            },
+            {
+              "value": "guy",
+              "label": {
+                "en": "Guy"
+              }
+            },
+            {
+              "value": "gwladys",
+              "label": {
+                "en": "Gwladys"
+              }
+            },
+            {
+              "value": "habib",
+              "label": {
+                "en": "Habib"
+              }
+            },
+            {
+              "value": "helene",
+              "label": {
+                "en": "Hélène"
+              }
+            },
+            {
+              "value": "henri",
+              "label": {
+                "en": "Henri"
+              }
+            },
+            {
+              "value": "herbert",
+              "label": {
+                "en": "Herbert"
+              }
+            },
+            {
+              "value": "hermann",
+              "label": {
+                "en": "Hermann"
+              }
+            },
+            {
+              "value": "herve",
+              "label": {
+                "en": "Hervé"
+              }
+            },
+            {
+              "value": "hippolyte",
+              "label": {
+                "en": "Hippolyte"
+              }
+            },
+            {
+              "value": "honore",
+              "label": {
+                "en": "Honoré"
+              }
+            },
+            {
+              "value": "honorine",
+              "label": {
+                "en": "Honorine"
+              }
+            },
+            {
+              "value": "hubert",
+              "label": {
+                "en": "Hubert"
+              }
+            },
+            {
+              "value": "hugues",
+              "label": {
+                "en": "Hugues"
+              }
+            },
+            {
+              "value": "humbert",
+              "label": {
+                "en": "Humbert"
+              }
+            },
+            {
+              "value": "hyacinthe",
+              "label": {
+                "en": "Hyacinthe"
+              }
+            },
+            {
+              "value": "ida",
+              "label": {
+                "en": "Ida"
+              }
+            },
+            {
+              "value": "ignace-de-loyola",
+              "label": {
+                "en": "Ignace de Loyola"
+              }
+            },
+            {
+              "value": "igor",
+              "label": {
+                "en": "Igor"
+              }
+            },
+            {
+              "value": "ines",
+              "label": {
+                "en": "Inès"
+              }
+            },
+            {
+              "value": "ingrid",
+              "label": {
+                "en": "Ingrid"
+              }
+            },
+            {
+              "value": "irene",
+              "label": {
+                "en": "Irène"
+              }
+            },
+            {
+              "value": "irenee",
+              "label": {
+                "en": "Irénée"
+              }
+            },
+            {
+              "value": "isabelle",
+              "label": {
+                "en": "Isabelle"
+              }
+            },
+            {
+              "value": "isidore",
+              "label": {
+                "en": "Isidore"
+              }
+            },
+            {
+              "value": "jacqueline",
+              "label": {
+                "en": "Jacqueline"
+              }
+            },
+            {
+              "value": "jacques",
+              "label": {
+                "en": "Jacques"
+              }
+            },
+            {
+              "value": "jacques-de-la-marche",
+              "label": {
+                "en": "Jacques de la Marche"
+              }
+            },
+            {
+              "value": "jean",
+              "label": {
+                "en": "Jean"
+              }
+            },
+            {
+              "value": "jean-baptiste",
+              "label": {
+                "en": "Jean-Baptiste"
+              }
+            },
+            {
+              "value": "jean-baptiste-de-la-salle",
+              "label": {
+                "en": "Jean-Baptiste de la Salle"
+              }
+            },
+            {
+              "value": "jean-de-capistran",
+              "label": {
+                "en": "Jean de Capistran"
+              }
+            },
+            {
+              "value": "jean-de-dieu",
+              "label": {
+                "en": "Jean de Dieu"
+              }
+            },
+            {
+              "value": "jean-eudes",
+              "label": {
+                "en": "Jean-Eudes"
+              }
+            },
+            {
+              "value": "jean-francois-regis",
+              "label": {
+                "en": "Jean-François Régis"
+              }
+            },
+            {
+              "value": "jean-marie-vianney",
+              "label": {
+                "en": "Jean-Marie Vianney"
+              }
+            },
+            {
+              "value": "jeanne-francoise-de-chantal",
+              "label": {
+                "en": "Jeanne-Françoise de Chantal"
+              }
+            },
+            {
+              "value": "jerome",
+              "label": {
+                "en": "Jérôme"
+              }
+            },
+            {
+              "value": "joseph",
+              "label": {
+                "en": "Joseph"
+              }
+            },
+            {
+              "value": "jude",
+              "label": {
+                "en": "Jude"
+              }
+            },
+            {
+              "value": "judith",
+              "label": {
+                "en": "Judith"
+              }
+            },
+            {
+              "value": "jules",
+              "label": {
+                "en": "Jules"
+              }
+            },
+            {
+              "value": "julie",
+              "label": {
+                "en": "Julie"
+              }
+            },
+            {
+              "value": "julien-eymard",
+              "label": {
+                "en": "Julien Eymard"
+              }
+            },
+            {
+              "value": "julienne",
+              "label": {
+                "en": "Julienne"
+              }
+            },
+            {
+              "value": "juliette",
+              "label": {
+                "en": "Juliette"
+              }
+            },
+            {
+              "value": "juste",
+              "label": {
+                "en": "Juste"
+              }
+            },
+            {
+              "value": "justin",
+              "label": {
+                "en": "Justin"
+              }
+            },
+            {
+              "value": "justine",
+              "label": {
+                "en": "Justine"
+              }
+            },
+            {
+              "value": "karine",
+              "label": {
+                "en": "Karine"
+              }
+            },
+            {
+              "value": "kevin",
+              "label": {
+                "en": "Kévin"
+              }
+            },
+            {
+              "value": "landry",
+              "label": {
+                "en": "Landry"
+              }
+            },
+            {
+              "value": "larissa",
+              "label": {
+                "en": "Larissa"
+              }
+            },
+            {
+              "value": "laurent",
+              "label": {
+                "en": "Laurent"
+              }
+            },
+            {
+              "value": "lazare",
+              "label": {
+                "en": "Lazare"
+              }
+            },
+            {
+              "value": "lea",
+              "label": {
+                "en": "Léa"
+              }
+            },
+            {
+              "value": "leger",
+              "label": {
+                "en": "Léger"
+              }
+            },
+            {
+              "value": "leon",
+              "label": {
+                "en": "Léon"
+              }
+            },
+            {
+              "value": "leonce",
+              "label": {
+                "en": "Léonce"
+              }
+            },
+            {
+              "value": "louis",
+              "label": {
+                "en": "Louis"
+              }
+            },
+            {
+              "value": "louise",
+              "label": {
+                "en": "Louise"
+              }
+            },
+            {
+              "value": "luc",
+              "label": {
+                "en": "Luc"
+              }
+            },
+            {
+              "value": "lucie",
+              "label": {
+                "en": "Lucie"
+              }
+            },
+            {
+              "value": "lucien",
+              "label": {
+                "en": "Lucien"
+              }
+            },
+            {
+              "value": "lydie",
+              "label": {
+                "en": "Lydie"
+              }
+            },
+            {
+              "value": "marc",
+              "label": {
+                "en": "Marc"
+              }
+            },
+            {
+              "value": "marcel",
+              "label": {
+                "en": "Marcel"
+              }
+            },
+            {
+              "value": "marcelle",
+              "label": {
+                "en": "Marcelle"
+              }
+            },
+            {
+              "value": "marcellin",
+              "label": {
+                "en": "Marcellin"
+              }
+            },
+            {
+              "value": "marguerite",
+              "label": {
+                "en": "Marguerite"
+              }
+            },
+            {
+              "value": "marie",
+              "label": {
+                "en": "Marie"
+              }
+            },
+            {
+              "value": "marie-madeleine",
+              "label": {
+                "en": "Marie-Madeleine"
+              }
+            },
+            {
+              "value": "mariette",
+              "label": {
+                "en": "Mariette"
+              }
+            },
+            {
+              "value": "marina",
+              "label": {
+                "en": "Marina"
+              }
+            },
+            {
+              "value": "marius",
+              "label": {
+                "en": "Marius"
+              }
+            },
+            {
+              "value": "marthe",
+              "label": {
+                "en": "Marthe"
+              }
+            },
+            {
+              "value": "martial",
+              "label": {
+                "en": "Martial"
+              }
+            },
+            {
+              "value": "martin",
+              "label": {
+                "en": "Martin"
+              }
+            },
+            {
+              "value": "martine",
+              "label": {
+                "en": "Martine"
+              }
+            },
+            {
+              "value": "martinien",
+              "label": {
+                "en": "Martinien"
+              }
+            },
+            {
+              "value": "mathilde",
+              "label": {
+                "en": "Mathilde"
+              }
+            },
+            {
+              "value": "matthias",
+              "label": {
+                "en": "Matthias"
+              }
+            },
+            {
+              "value": "matthieu",
+              "label": {
+                "en": "Matthieu"
+              }
+            },
+            {
+              "value": "maurice",
+              "label": {
+                "en": "Maurice"
+              }
+            },
+            {
+              "value": "maxime",
+              "label": {
+                "en": "Maxime"
+              }
+            },
+            {
+              "value": "medard",
+              "label": {
+                "en": "Médard"
+              }
+            },
+            {
+              "value": "melaine",
+              "label": {
+                "en": "Mélaine"
+              }
+            },
+            {
+              "value": "michel",
+              "label": {
+                "en": "Michel"
+              }
+            },
+            {
+              "value": "modeste",
+              "label": {
+                "en": "Modeste"
+              }
+            },
+            {
+              "value": "monique",
+              "label": {
+                "en": "Monique"
+              }
+            },
+            {
+              "value": "nadege",
+              "label": {
+                "en": "Nadège"
+              }
+            },
+            {
+              "value": "narcisse",
+              "label": {
+                "en": "Narcisse"
+              }
+            },
+            {
+              "value": "natacha",
+              "label": {
+                "en": "Natacha"
+              }
+            },
+            {
+              "value": "nathalie",
+              "label": {
+                "en": "Nathalie"
+              }
+            },
+            {
+              "value": "nestor",
+              "label": {
+                "en": "Nestor"
+              }
+            },
+            {
+              "value": "nicolas",
+              "label": {
+                "en": "Nicolas"
+              }
+            },
+            {
+              "value": "nina",
+              "label": {
+                "en": "Nina"
+              }
+            },
+            {
+              "value": "ninon",
+              "label": {
+                "en": "Ninon"
+              }
+            },
+            {
+              "value": "norbert",
+              "label": {
+                "en": "Norbert"
+              }
+            },
+            {
+              "value": "odette",
+              "label": {
+                "en": "Odette"
+              }
+            },
+            {
+              "value": "odile",
+              "label": {
+                "en": "Odile"
+              }
+            },
+            {
+              "value": "odilon",
+              "label": {
+                "en": "Odilon"
+              }
+            },
+            {
+              "value": "olive",
+              "label": {
+                "en": "Olive"
+              }
+            },
+            {
+              "value": "olivier",
+              "label": {
+                "en": "Olivier"
+              }
+            },
+            {
+              "value": "pacome",
+              "label": {
+                "en": "Pacôme"
+              }
+            },
+            {
+              "value": "parfait",
+              "label": {
+                "en": "Parfait"
+              }
+            },
+            {
+              "value": "pascal",
+              "label": {
+                "en": "Pascal"
+              }
+            },
+            {
+              "value": "paterne",
+              "label": {
+                "en": "Paterne"
+              }
+            },
+            {
+              "value": "patrice",
+              "label": {
+                "en": "Patrice"
+              }
+            },
+            {
+              "value": "paule",
+              "label": {
+                "en": "Paule"
+              }
+            },
+            {
+              "value": "pauline",
+              "label": {
+                "en": "Pauline"
+              }
+            },
+            {
+              "value": "pelagie",
+              "label": {
+                "en": "Pélagie"
+              }
+            },
+            {
+              "value": "petronille",
+              "label": {
+                "en": "Pétronille"
+              }
+            },
+            {
+              "value": "philippe",
+              "label": {
+                "en": "Philippe"
+              }
+            },
+            {
+              "value": "pierre",
+              "label": {
+                "en": "Pierre"
+              }
+            },
+            {
+              "value": "pierre-canisius",
+              "label": {
+                "en": "Pierre Canisius"
+              }
+            },
+            {
+              "value": "pierre-damien",
+              "label": {
+                "en": "Pierre Damien"
+              }
+            },
+            {
+              "value": "pierre-fourier",
+              "label": {
+                "en": "Pierre Fourier"
+              }
+            },
+            {
+              "value": "prisca",
+              "label": {
+                "en": "Prisca"
+              }
+            },
+            {
+              "value": "prosper",
+              "label": {
+                "en": "Prosper"
+              }
+            },
+            {
+              "value": "prudence",
+              "label": {
+                "en": "Prudence"
+              }
+            },
+            {
+              "value": "quentin",
+              "label": {
+                "en": "Quentin"
+              }
+            },
+            {
+              "value": "raissa",
+              "label": {
+                "en": "Raïssa"
+              }
+            },
+            {
+              "value": "raoul",
+              "label": {
+                "en": "Raoul"
+              }
+            },
+            {
+              "value": "raymond",
+              "label": {
+                "en": "Raymond"
+              }
+            },
+            {
+              "value": "reine",
+              "label": {
+                "en": "Reine"
+              }
+            },
+            {
+              "value": "remi",
+              "label": {
+                "en": "Rémi"
+              }
+            },
+            {
+              "value": "renaud",
+              "label": {
+                "en": "Renaud"
+              }
+            },
+            {
+              "value": "rene",
+              "label": {
+                "en": "René"
+              }
+            },
+            {
+              "value": "richard",
+              "label": {
+                "en": "Richard"
+              }
+            },
+            {
+              "value": "robert",
+              "label": {
+                "en": "Robert"
+              }
+            },
+            {
+              "value": "rodrigue",
+              "label": {
+                "en": "Rodrigue"
+              }
+            },
+            {
+              "value": "roger",
+              "label": {
+                "en": "Roger"
+              }
+            },
+            {
+              "value": "roland",
+              "label": {
+                "en": "Roland"
+              }
+            },
+            {
+              "value": "rolande",
+              "label": {
+                "en": "Rolande"
+              }
+            },
+            {
+              "value": "romain",
+              "label": {
+                "en": "Romain"
+              }
+            },
+            {
+              "value": "romaric",
+              "label": {
+                "en": "Romaric"
+              }
+            },
+            {
+              "value": "romeo",
+              "label": {
+                "en": "Roméo"
+              }
+            },
+            {
+              "value": "romuald",
+              "label": {
+                "en": "Romuald"
+              }
+            },
+            {
+              "value": "rosalie",
+              "label": {
+                "en": "Rosalie"
+              }
+            },
+            {
+              "value": "rose-de-lima",
+              "label": {
+                "en": "Rose de Lima"
+              }
+            },
+            {
+              "value": "roseline",
+              "label": {
+                "en": "Roseline"
+              }
+            },
+            {
+              "value": "rosine",
+              "label": {
+                "en": "Rosine"
+              }
+            },
+            {
+              "value": "sabine",
+              "label": {
+                "en": "Sabine"
+              }
+            },
+            {
+              "value": "samson",
+              "label": {
+                "en": "Samson"
+              }
+            },
+            {
+              "value": "sandrine",
+              "label": {
+                "en": "Sandrine"
+              }
+            },
+            {
+              "value": "saturnin",
+              "label": {
+                "en": "Saturnin"
+              }
+            },
+            {
+              "value": "sebastien",
+              "label": {
+                "en": "Sébastien"
+              }
+            },
+            {
+              "value": "serge",
+              "label": {
+                "en": "Serge"
+              }
+            },
+            {
+              "value": "severin",
+              "label": {
+                "en": "Séverin"
+              }
+            },
+            {
+              "value": "sidoine",
+              "label": {
+                "en": "Sidoine"
+              }
+            },
+            {
+              "value": "silvere",
+              "label": {
+                "en": "Silvère"
+              }
+            },
+            {
+              "value": "solange",
+              "label": {
+                "en": "Solange"
+              }
+            },
+            {
+              "value": "sophie",
+              "label": {
+                "en": "Sophie"
+              }
+            },
+            {
+              "value": "stanislas",
+              "label": {
+                "en": "Stanislas"
+              }
+            },
+            {
+              "value": "sylvain",
+              "label": {
+                "en": "Sylvain"
+              }
+            },
+            {
+              "value": "sylvestre",
+              "label": {
+                "en": "Sylvestre"
+              }
+            },
+            {
+              "value": "sylvie",
+              "label": {
+                "en": "Sylvie"
+              }
+            },
+            {
+              "value": "tanguy",
+              "label": {
+                "en": "Tanguy"
+              }
+            },
+            {
+              "value": "tatiana",
+              "label": {
+                "en": "Tatiana"
+              }
+            },
+            {
+              "value": "thecle",
+              "label": {
+                "en": "Thècle"
+              }
+            },
+            {
+              "value": "theodore",
+              "label": {
+                "en": "Théodore"
+              }
+            },
+            {
+              "value": "theophile",
+              "label": {
+                "en": "Théophile"
+              }
+            },
+            {
+              "value": "therese-d-avila",
+              "label": {
+                "en": "Thérèse d'Avila"
+              }
+            },
+            {
+              "value": "therese-de-l-enfant-jesus",
+              "label": {
+                "en": "Thérèse de l'Enfant Jésus"
+              }
+            },
+            {
+              "value": "thibault",
+              "label": {
+                "en": "Thibault"
+              }
+            },
+            {
+              "value": "thierry",
+              "label": {
+                "en": "Thierry"
+              }
+            },
+            {
+              "value": "thomas",
+              "label": {
+                "en": "Thomas"
+              }
+            },
+            {
+              "value": "thomas-d-aquin",
+              "label": {
+                "en": "Thomas d'Aquin"
+              }
+            },
+            {
+              "value": "ulrich",
+              "label": {
+                "en": "Ulrich"
+              }
+            },
+            {
+              "value": "urbain",
+              "label": {
+                "en": "Urbain"
+              }
+            },
+            {
+              "value": "valentin",
+              "label": {
+                "en": "Valentin"
+              }
+            },
+            {
+              "value": "valerie",
+              "label": {
+                "en": "Valérie"
+              }
+            },
+            {
+              "value": "venceslas",
+              "label": {
+                "en": "Venceslas"
+              }
+            },
+            {
+              "value": "veronique",
+              "label": {
+                "en": "Véronique"
+              }
+            },
+            {
+              "value": "victor",
+              "label": {
+                "en": "Victor"
+              }
+            },
+            {
+              "value": "victorien",
+              "label": {
+                "en": "Victorien"
+              }
+            },
+            {
+              "value": "vincent",
+              "label": {
+                "en": "Vincent"
+              }
+            },
+            {
+              "value": "vincent-de-paul",
+              "label": {
+                "en": "Vincent de Paul"
+              }
+            },
+            {
+              "value": "viviane",
+              "label": {
+                "en": "Viviane"
+              }
+            },
+            {
+              "value": "vivien",
+              "label": {
+                "en": "Vivien"
+              }
+            },
+            {
+              "value": "wilfried",
+              "label": {
+                "en": "Wilfried"
+              }
+            },
+            {
+              "value": "yves",
+              "label": {
+                "en": "Yves"
+              }
+            },
+            {
+              "value": "yvette",
+              "label": {
+                "en": "Yvette"
+              }
+            },
+            {
+              "value": "zita",
+              "label": {
+                "en": "Zita"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "name",
+          "type": "string",
+          "label": {
+            "en": "First name of the day",
+            "fr": "Prénom du jour",
+            "de": "Vorname des Tages",
+            "es": "Nombre del día"
+          }
+        },
+        {
+          "key": "feast",
+          "type": "string",
+          "label": {
+            "en": "Feast or holiday (empty most days)",
+            "fr": "Fête ou jour férié (vide la plupart des jours)",
+            "de": "Fest oder Feiertag (meist leer)",
+            "es": "Fiesta o festivo (vacío casi siempre)"
+          }
+        },
+        {
+          "key": "date",
+          "type": "string",
+          "label": {
+            "en": "Day (YYYY-MM-DD)",
+            "fr": "Jour (AAAA-MM-JJ)",
+            "de": "Tag (JJJJ-MM-TT)",
+            "es": "Día (AAAA-MM-DD)"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "get_name_day",
+      "label": {
+        "en": "Get the name day",
+        "fr": "Obtenir la fête du jour",
+        "de": "Namenstag abrufen",
+        "es": "Obtener el santo del día"
+      },
+      "description": {
+        "en": "The name day of today or tomorrow, as a sentence to send in a message.",
+        "fr": "La fête d’aujourd’hui ou de demain, en phrase à envoyer dans un message.",
+        "de": "Der Namenstag von heute oder morgen, als Satz für eine Nachricht.",
+        "es": "El santo de hoy o de mañana, como frase para enviar en un mensaje."
+      },
+      "timeout_seconds": 10,
+      "fields": [
+        {
+          "key": "day",
+          "type": "select",
+          "default": "today",
+          "label": {
+            "en": "Day",
+            "fr": "Jour",
+            "de": "Tag",
+            "es": "Día"
+          },
+          "options": [
+            {
+              "value": "today",
+              "label": {
+                "en": "Today",
+                "fr": "Aujourd’hui",
+                "de": "Heute",
+                "es": "Hoy"
+              }
+            },
+            {
+              "value": "tomorrow",
+              "label": {
+                "en": "Tomorrow",
+                "fr": "Demain",
+                "de": "Morgen",
+                "es": "Mañana"
+              }
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "key": "name",
+          "type": "string",
+          "label": {
+            "en": "First name",
+            "fr": "Prénom",
+            "de": "Vorname",
+            "es": "Nombre"
+          }
+        },
+        {
+          "key": "feast",
+          "type": "string",
+          "label": {
+            "en": "Feast or holiday",
+            "fr": "Fête ou jour férié",
+            "de": "Fest oder Feiertag",
+            "es": "Fiesta o festivo"
+          }
+        },
+        {
+          "key": "date",
+          "type": "string",
+          "label": {
+            "en": "Day (YYYY-MM-DD)",
+            "fr": "Jour (AAAA-MM-JJ)",
+            "de": "Tag (JJJJ-MM-TT)",
+            "es": "Día (AAAA-MM-DD)"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    }
+  ]
+}
