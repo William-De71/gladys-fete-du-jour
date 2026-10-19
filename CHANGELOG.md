@@ -5,7 +5,7 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
-## [0.1.0] - unreleased
+## [0.1.0] - 2026-10-19
 
 ### Added
 
@@ -16,3 +16,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - Scene action "Get the name day" (today or tomorrow), with a ready-made sentence.
 - Dashboard widget "Name day": the name day of today and of the next days.
 - English, French, German and Spanish everywhere: settings, calendar, widget, scenes and documentation.
+
+[0.1.0]: https://github.com/William-De71/gladys-fete-du-jour/releases/tag/v0.1.0
