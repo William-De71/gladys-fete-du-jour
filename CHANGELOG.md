@@ -5,6 +5,12 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
+## [0.1.1] - 2026-10-24
+
+### Security
+
+- **security:** build the image on Node.js 24.22.1 or later ([53aa3b6](https://github.com/William-De71/gladys-fete-du-jour/commit/53aa3b66add586c2f3b53954177c4e82fa0dfd9c))
+
 ## [0.1.0] - 2026-10-19
 
 ### Added
@@ -17,4 +23,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - Dashboard widget "Name day": the name day of today and of the next days.
 - English, French, German and Spanish everywhere: settings, calendar, widget, scenes and documentation.
 
+[0.1.1]: https://github.com/William-De71/gladys-fete-du-jour/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/William-De71/gladys-fete-du-jour/releases/tag/v0.1.0
