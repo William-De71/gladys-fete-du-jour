@@ -5,7 +5,7 @@
 [![Licencia: Apache-2.0](https://img.shields.io/badge/licencia-Apache--2.0-blue.svg)](LICENSE)
 [![Última versión](https://img.shields.io/github/v/release/William-De71/gladys-fete-du-jour?sort=semver)](https://github.com/William-De71/gladys-fete-du-jour/releases)
 [![CI](https://img.shields.io/github/actions/workflow/status/William-De71/gladys-fete-du-jour/release.yml?branch=main&label=CI)](https://github.com/William-De71/gladys-fete-du-jour/actions/workflows/release.yml)
-[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.2.0-2f6fb5)](https://gladysassistant.com)
+[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.3.0-2f6fb5)](https://gladysassistant.com)
 
 ![Fête du jour para Gladys Assistant](cover.jpg)
 
@@ -35,7 +35,7 @@ flowchart LR
 
 ## Requisitos
 
-- Gladys Assistant **5.2.0** o posterior (integraciones de calendario).
+- Gladys Assistant **5.3.0** o posterior (palabras clave y países del catálogo de Gladys 5.3, integraciones de calendario).
 - Solo para fetedujour.fr: una clave gratuita y una dirección IP pública fija.
 
 ## Instalación

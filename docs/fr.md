@@ -15,7 +15,7 @@ L’image ci-dessus est une illustration générée, pas une capture d’écran.
 
 ## Prérequis
 
-- Gladys Assistant 5.2.0 ou plus récent (intégrations de type calendrier).
+- Gladys Assistant 5.3.0 ou plus récent (intégrations de type calendrier).
 - Le fuseau horaire de Gladys correctement réglé (**Paramètres > Système**) : les jours changent à son minuit.
 - Rien d’autre avec la liste intégrée. Pour fetedujour.fr : une clé gratuite et une adresse IP publique **fixe** (voir plus bas).
 

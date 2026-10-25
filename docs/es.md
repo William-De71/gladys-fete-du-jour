@@ -15,7 +15,7 @@ La imagen de arriba es una ilustración generada, no una captura de pantalla.
 
 ## Requisitos
 
-- Gladys Assistant 5.2.0 o posterior (integraciones de calendario).
+- Gladys Assistant 5.3.0 o posterior (integraciones de calendario).
 - La zona horaria de Gladys bien configurada (**Ajustes > Sistema**): los días cambian a su medianoche.
 - Nada más con la lista integrada. Para fetedujour.fr: una clave gratuita y una dirección IP pública **fija** (ver más abajo).
 

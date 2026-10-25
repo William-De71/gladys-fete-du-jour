@@ -15,7 +15,7 @@ The image above is a generated illustration, not a screenshot.
 
 ## Requirements
 
-- Gladys Assistant 5.2.0 or later (calendar integrations).
+- Gladys Assistant 5.3.0 or later (calendar integrations).
 - The timezone of Gladys set correctly (**Settings > System**): the days change at its midnight.
 - Nothing else with the built-in list. For fetedujour.fr: a free key and a **fixed** public IP address (see below).
 
