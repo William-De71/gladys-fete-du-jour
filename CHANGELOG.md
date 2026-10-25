@@ -5,6 +5,12 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
+## [0.2.0] - 2026-10-25
+
+### Added
+
+- require Gladys 5.3 and declare catalog keywords and countries ([b3e76c9](https://github.com/William-De71/gladys-fete-du-jour/commit/b3e76c9eb3954f5b79dfc20d29e5db4fcd85a251))
+
 ## [0.1.1] - 2026-10-24
 
 ### Security
@@ -23,5 +29,6 @@ each release from the Conventional Commits: do not edit it by hand.
 - Dashboard widget "Name day": the name day of today and of the next days.
 - English, French, German and Spanish everywhere: settings, calendar, widget, scenes and documentation.
 
+[0.2.0]: https://github.com/William-De71/gladys-fete-du-jour/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/William-De71/gladys-fete-du-jour/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/William-De71/gladys-fete-du-jour/releases/tag/v0.1.0
